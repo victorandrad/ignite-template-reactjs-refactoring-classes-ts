@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Food from '../../components/Food';
+import { Food } from '../../components/Food';
 import { Header } from '../../components/Header';
 import { ModalAddFood } from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
@@ -73,7 +73,7 @@ export function Dashboard() {
     setEditingFood(food);
     setEditModalOpen(true);
   }
-  
+
   return (
     <>
       <Header openModal={toggleModal} />
@@ -95,7 +95,7 @@ export function Dashboard() {
             <Food
               key={food.id}
               food={food}
-              handleDelete={handleDeleteFood}
+              handleDelete={() => handleDeleteFood(food.id)}
               handleEditFood={handleEditFood}
             />
           ))}
